@@ -21,6 +21,8 @@ class DogsListAdapter(val dogsList: ArrayList<DogBreed>) : RecyclerView.Adapter<
         notifyDataSetChanged()
     }
 
+    class DogViewHolder(var view: ItemDogBinding) : RecyclerView.ViewHolder(view.root)
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DogViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val view = DataBindingUtil.inflate<ItemDogBinding>(inflater, R.layout.item_dog, parent, false)
@@ -41,5 +43,4 @@ class DogsListAdapter(val dogsList: ArrayList<DogBreed>) : RecyclerView.Adapter<
         Navigation.findNavController(v).navigate(action)
     }
 
-    class DogViewHolder(var view: ItemDogBinding) : RecyclerView.ViewHolder(view.root)
 }
